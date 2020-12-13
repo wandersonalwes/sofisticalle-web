@@ -6,8 +6,7 @@ import { getAllProducts } from '../data/products'
 import { AiFillFire } from 'react-icons/ai'
 
 import * as Ui from '@chakra-ui/react'
-import formatMoney from '../utils/formatMoney'
-import { Layout } from '../components'
+import { Layout, ProductItem } from '../components'
 
 interface HomeProps {
   products: IProductData[]
@@ -34,41 +33,7 @@ export default function Home({ products }: HomeProps) {
         gap={4}
       >
         {products.map(product => (
-          <Link key={product.id} href={`produto/${product.slug}`}>
-            <a>
-              <Ui.GridItem
-                borderWidth="1px"
-                borderRadius="sm"
-                overflow="hidden"
-                transition="0.2s"
-                _hover={{
-                  boxShadow: 'base',
-                }}
-              >
-                <Ui.Image
-                  w="full"
-                  h="200px"
-                  objectFit="cover"
-                  src={
-                    !product.images.length
-                      ? 'no-image.jpg'
-                      : product.images[0].url
-                  }
-                />
-
-                <Ui.Box p="6">
-                  <Ui.Box fontWeight="semibold" mt="1" as="h4" isTruncated>
-                    {product.title}
-                  </Ui.Box>
-                  <Ui.Box as="span" color="gray.600" fontSize="sm">
-                    {product.price
-                      ? formatMoney(product.price)
-                      : 'Preço sob consulta'}
-                  </Ui.Box>
-                </Ui.Box>
-              </Ui.GridItem>
-            </a>
-          </Link>
+          <ProductItem key={product.id} product={product} />
         ))}
       </Ui.Grid>
 
