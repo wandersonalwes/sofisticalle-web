@@ -60,25 +60,24 @@ export default function Header() {
           </Link>
 
           <Ui.Flex alignItems="center" maxW="824px" w="100%" justify="flex-end">
-            <Ui.InputGroup
-              display={{ base: 'none', md: 'block' }}
-              size="lg"
-              mx="6"
-            >
-              <Ui.InputLeftElement
-                alignItems="center"
-                pointerEvents="none"
-                children={
-                  <Ui.Icon
-                    w="24px"
-                    h="24px"
-                    color="gray.500"
-                    as={IoSearchOutline}
-                  />
-                }
-              />
-              <Ui.Input placeholder="Buscar um produto..." />
-            </Ui.InputGroup>
+            <Ui.FormControl action="search" mx="6" as="form">
+              <Ui.InputGroup display={{ base: 'none', md: 'block' }} size="lg">
+                <Ui.InputLeftElement
+                  alignItems="center"
+                  pointerEvents="none"
+                  children={
+                    <Ui.Icon
+                      w="24px"
+                      h="24px"
+                      color="gray.500"
+                      as={IoSearchOutline}
+                    />
+                  }
+                />
+
+                <Ui.Input name="q" placeholder="Buscar um produto..." />
+              </Ui.InputGroup>
+            </Ui.FormControl>
             <Ui.Box display={{ base: 'none', md: 'flex' }} spacing="5">
               <Link href="https://facebook.com/sofisticalle">
                 <a>
