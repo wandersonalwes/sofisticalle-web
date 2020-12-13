@@ -12,7 +12,6 @@ interface SearchProps {
 export default function Search({ products }: SearchProps) {
   const router = useRouter()
 
-  console.log(products)
   return (
     <Layout>
       {products.length > 0 && (
