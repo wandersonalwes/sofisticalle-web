@@ -59,7 +59,7 @@ export default function Product({ product }: Productrops) {
         <Ui.Box
           display={{ base: 'block', md: 'grid' }}
           gridTemplateColumns="repeat(3, minmax(0, 1fr))"
-          justifyContent="space-between"
+          gridGap="10"
         >
           <Ui.GridItem mb="10" colStart={1} colEnd={3} maxW="100%">
             {!!product.images.length && (
@@ -81,7 +81,7 @@ export default function Product({ product }: Productrops) {
             )}
           </Ui.GridItem>
 
-          <Ui.Box ml="10">
+          <Ui.Box>
             <Ui.Heading mb="5" size="lg">
               {product.title}
             </Ui.Heading>
@@ -102,6 +102,12 @@ export default function Product({ product }: Productrops) {
               size="lg"
               w="full"
               colorScheme="green"
+              onClick={() =>
+                window.open(
+                  `https://wa.me/+5562993395065?text=Olá, Tenho interesse neste item: https://sofisticalle.com/produto/${product.slug}`,
+                  '_blank',
+                )
+              }
             >
               EU QUERO
             </Ui.Button>
