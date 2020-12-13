@@ -62,24 +62,39 @@ export default function Product({ product }: Productrops) {
           justifyContent="space-between"
         >
           <Ui.GridItem mb="10" colStart={1} colEnd={3} maxW="100%">
-            <Slider {...settings}>
-              {product.images.map(image => (
-                <img
-                  key={image.id}
-                  src={image.url}
-                  alt={image.alternativeText}
-                />
-              ))}
-            </Slider>
+            {!!product.images.length && (
+              <Slider {...settings}>
+                {product.images.map(image => (
+                  <img
+                    key={image.id}
+                    src={image.url}
+                    alt={image.alternativeText}
+                  />
+                ))}
+              </Slider>
+            )}
+
+            {!product.images.length && (
+              <Slider>
+                <img src="/no-image.jpg" alt="sem imagem" />
+              </Slider>
+            )}
           </Ui.GridItem>
 
           <Ui.Box ml="10">
             <Ui.Heading mb="5" size="lg">
               {product.title}
             </Ui.Heading>
-            <Ui.Text mb="5">{formatMoney(product.price)}</Ui.Text>
 
-            <div dangerouslySetInnerHTML={{ __html: product.description }} />
+            <Ui.Text mb="5">
+              {product.price
+                ? formatMoney(product.price)
+                : 'Preço sob consulta'}
+            </Ui.Text>
+
+            {product.description && (
+              <div dangerouslySetInnerHTML={{ __html: product.description }} />
+            )}
 
             <Ui.Button
               leftIcon={<Ui.Icon as={IoLogoWhatsapp} />}

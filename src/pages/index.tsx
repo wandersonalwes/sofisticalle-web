@@ -49,7 +49,11 @@ export default function Home({ products }: HomeProps) {
                   w="full"
                   h="200px"
                   objectFit="cover"
-                  src={product.images[0].url}
+                  src={
+                    !product.images.length
+                      ? 'no-image.jpg'
+                      : product.images[0].url
+                  }
                 />
 
                 <Ui.Box p="6">
@@ -57,7 +61,9 @@ export default function Home({ products }: HomeProps) {
                     {product.title}
                   </Ui.Box>
                   <Ui.Box as="span" color="gray.600" fontSize="sm">
-                    {formatMoney(product.price)}
+                    {product.price
+                      ? formatMoney(product.price)
+                      : 'Preço sob consulta'}
                   </Ui.Box>
                 </Ui.Box>
               </Ui.GridItem>
