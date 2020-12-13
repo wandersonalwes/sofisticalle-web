@@ -15,8 +15,7 @@ export default function Footer() {
           <Ui.GridItem mb="10">
             <Ui.Image mb="5" src="/logo.png" maxW="200px" />
             <Ui.Text color="gray.600" maxW="350px">
-              Lojas de móveis e eletrodomésticos em Goiânia, em até 24 horas,
-              montado na entrega.
+              Lojas de móveis e eletrodomésticos em Goiânia.
             </Ui.Text>
           </Ui.GridItem>
           <Ui.GridItem mb="10">
