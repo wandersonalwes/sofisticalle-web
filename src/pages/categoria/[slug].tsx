@@ -2,17 +2,29 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { Layout, ProductItem } from '../../components'
 import * as Ui from '@chakra-ui/react'
 import { ICategoryData } from '../../@types/api/categories'
+import Link from 'next/link'
+import Error from 'next/error'
 import {
   getAllCategories,
   getCategoryBySlug,
   getTotalCategories,
 } from '../../data/categories'
+import { useRouter } from 'next/router'
 
 interface CategoryProps {
   category: ICategoryData
 }
 
 export default function Category({ category }: CategoryProps) {
+  const router = useRouter()
+
+  if (router.isFallback) {
+    return <div>Carregando...</div>
+  }
+
+  if (!category) {
+    return <Error statusCode={404} />
+  }
   return (
     <Layout>
       <Ui.Breadcrumb mb="6">
@@ -44,7 +56,11 @@ export default function Category({ category }: CategoryProps) {
           gap={4}
         >
           {category.products.map(product => (
-            <ProductItem key={product.id} product={product} />
+            <Link key={product.id} href={`/produto/${product.slug}`}>
+              <a>
+                <ProductItem product={product} />
+              </a>
+            </Link>
           ))}
         </Ui.Grid>
       )}
@@ -58,6 +74,7 @@ export default function Category({ category }: CategoryProps) {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const numberOfCategories = await getTotalCategories()
+
   const categories = await getAllCategories(`_limit=${numberOfCategories}`)
 
   return {

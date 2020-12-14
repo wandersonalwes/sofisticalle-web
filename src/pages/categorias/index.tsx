@@ -10,7 +10,6 @@ interface CategoriesProps {
 }
 
 export default function Categories({ categories }: CategoriesProps) {
-  console.log(categories)
   return (
     <Layout>
       <Ui.Heading size="lg" mb="6">
