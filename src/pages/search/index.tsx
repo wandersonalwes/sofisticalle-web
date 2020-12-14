@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { IProductData } from '../../@types/api/product'
 import { Layout, ListProducts, ProductItem } from '../../components'
 import { searchProducts } from '../../data/products'
+import Link from 'next/link'
 
 interface SearchProps {
   products: IProductData[]
@@ -22,7 +23,11 @@ export default function Search({ products }: SearchProps) {
 
           <ListProducts>
             {products.map(product => (
-              <ProductItem key={product.id} product={product} />
+              <Link key={product.id} href={`/produto/${product.slug}`}>
+                <a>
+                  <ProductItem product={product} />
+                </a>
+              </Link>
             ))}
           </ListProducts>
         </>

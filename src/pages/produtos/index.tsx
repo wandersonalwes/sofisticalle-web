@@ -3,6 +3,7 @@ import { GetStaticProps } from 'next'
 import { IProductData } from '../../@types/api/product'
 import { Layout, ProductItem } from '../../components'
 import { getAllProducts } from '../../data/products'
+import Link from 'next/link'
 
 interface ProductsProps {
   products: IProductData[]
@@ -25,7 +26,11 @@ export default function Products({ products }: ProductsProps) {
         gap={4}
       >
         {products.map(product => (
-          <ProductItem key={product.id} product={product} />
+          <Link key={product.id} href={`/produto/${product.slug}`}>
+            <a>
+              <ProductItem product={product} />
+            </a>
+          </Link>
         ))}
       </Ui.Grid>
     </Layout>

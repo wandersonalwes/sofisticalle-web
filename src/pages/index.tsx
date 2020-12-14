@@ -33,7 +33,11 @@ export default function Home({ products }: HomeProps) {
         gap={4}
       >
         {products.map(product => (
-          <ProductItem key={product.id} product={product} />
+          <Link key={product.id} href={`/produto/${product.slug}`}>
+            <a>
+              <ProductItem product={product} />
+            </a>
+          </Link>
         ))}
       </Ui.Grid>
 
