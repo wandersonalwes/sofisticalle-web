@@ -28,6 +28,10 @@ export default function ProductItem({ product }: ProductItemProps) {
         <Ui.Box fontWeight="semibold" mt="1" as="h4" isTruncated>
           {product.title}
         </Ui.Box>
+
+        <Ui.Text>
+          {product.price ? formatMoney(product.price) : 'Preço sob consulta'}
+        </Ui.Text>
       </Ui.Box>
     </Ui.Box>
   )
