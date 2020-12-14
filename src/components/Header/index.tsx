@@ -61,7 +61,7 @@ export default function Header() {
             >
               <Ui.FormControl
                 display={{ base: 'none', md: 'block' }}
-                action="search"
+                action="/search"
                 mx="6"
                 as="form"
               >
