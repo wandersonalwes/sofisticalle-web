@@ -2,7 +2,7 @@ import * as Ui from '@chakra-ui/react'
 import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import { IProductData } from '../../@types/api/product'
-import { Layout, ListProducts, ProductItem } from '../../components'
+import { Layout, ListProducts, ProductItem } from '@/components/all'
 import { searchProducts } from '../../data/products'
 import Link from 'next/link'
 

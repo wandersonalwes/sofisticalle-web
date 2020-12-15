@@ -6,7 +6,7 @@ import { getAllProducts } from '../data/products'
 import { AiFillFire } from 'react-icons/ai'
 
 import * as Ui from '@chakra-ui/react'
-import { Layout, ProductItem } from '../components'
+import { Layout, ProductItem } from '@/components/all'
 
 interface HomeProps {
   products: IProductData[]

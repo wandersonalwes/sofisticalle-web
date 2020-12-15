@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next'
 import { ICategoryData } from '../../@types/api/categories'
-import { Layout } from '../../components'
+import { Layout } from '@/components/all'
 import Link from 'next/link'
 import * as Ui from '@chakra-ui/react'
 import { getAllCategories } from '../../data/categories'

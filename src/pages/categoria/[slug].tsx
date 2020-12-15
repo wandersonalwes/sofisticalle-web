@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { Layout, ProductItem } from '../../components'
+import { Layout, ProductItem } from '@/components/all'
 import * as Ui from '@chakra-ui/react'
 import { ICategoryData } from '../../@types/api/categories'
 import Link from 'next/link'

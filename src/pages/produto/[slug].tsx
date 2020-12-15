@@ -12,7 +12,7 @@ import {
   getTotalProducts,
 } from '../../data/products'
 
-import { Layout } from '../../components'
+import { Layout } from '@/components/all'
 import { useRouter } from 'next/router'
 
 interface Productrops {

@@ -1,7 +1,7 @@
 import * as Ui from '@chakra-ui/react'
 import { GetStaticProps } from 'next'
 import { IProductData } from '../../@types/api/product'
-import { Layout, ProductItem } from '../../components'
+import { Layout, ProductItem } from '@/components/all'
 import { getAllProducts } from '../../data/products'
 import Link from 'next/link'
 
