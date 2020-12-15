@@ -1,5 +1,6 @@
 import * as Ui from '@chakra-ui/react'
 import Link from 'next/link'
+
 import {
   IoSearchOutline,
   IoLogoFacebook,
@@ -11,6 +12,38 @@ import {
 import { CgMenuRight } from 'react-icons/cg'
 
 export default function Header() {
+  const SearchField = ({ isMobile = false }) => {
+    return (
+      <Ui.FormControl
+        display={
+          isMobile
+            ? { base: 'block', md: 'none' }
+            : { base: 'none', md: 'block' }
+        }
+        mx={isMobile ? '0' : '6'}
+        as="form"
+        action="/busca"
+      >
+        <Ui.InputGroup size="lg">
+          <Ui.InputLeftElement
+            alignItems="center"
+            pointerEvents="none"
+            children={
+              <Ui.Icon
+                w="24px"
+                h="24px"
+                color="gray.500"
+                as={IoSearchOutline}
+              />
+            }
+          />
+
+          <Ui.Input name="q" placeholder="Buscar um produto..." />
+        </Ui.InputGroup>
+      </Ui.FormControl>
+    )
+  }
+
   return (
     <Ui.Box>
       <Ui.Box background="gray.800">
@@ -59,29 +92,7 @@ export default function Header() {
               w="100%"
               justify="flex-end"
             >
-              <Ui.FormControl
-                display={{ base: 'none', md: 'block' }}
-                action="/search"
-                mx="6"
-                as="form"
-              >
-                <Ui.InputGroup size="lg">
-                  <Ui.InputLeftElement
-                    alignItems="center"
-                    pointerEvents="none"
-                    children={
-                      <Ui.Icon
-                        w="24px"
-                        h="24px"
-                        color="gray.500"
-                        as={IoSearchOutline}
-                      />
-                    }
-                  />
-
-                  <Ui.Input name="q" placeholder="Buscar um produto..." />
-                </Ui.InputGroup>
-              </Ui.FormControl>
+              <SearchField />
               <Ui.Box display={{ base: 'none', md: 'flex' }} spacing="5">
                 <Link href="https://facebook.com/sofisticalle">
                   <a>
@@ -148,29 +159,7 @@ export default function Header() {
             </Ui.Flex>
           </Ui.Flex>
 
-          <Ui.FormControl
-            display={{ base: 'block', md: 'none' }}
-            mt="2"
-            action="search"
-            as="form"
-          >
-            <Ui.InputGroup size="lg">
-              <Ui.InputLeftElement
-                alignItems="center"
-                pointerEvents="none"
-                children={
-                  <Ui.Icon
-                    w="24px"
-                    h="24px"
-                    color="gray.500"
-                    as={IoSearchOutline}
-                  />
-                }
-              />
-
-              <Ui.Input name="q" placeholder="Buscar um produto..." />
-            </Ui.InputGroup>
-          </Ui.FormControl>
+          <SearchField isMobile />
         </Ui.Container>
       </Ui.Box>
     </Ui.Box>

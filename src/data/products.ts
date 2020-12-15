@@ -36,7 +36,7 @@ export const searchProducts = async (search: string | string[]) => {
   const searchString = Array.isArray(search) ? search[0] : search
 
   const { data: searchResult } = await api.get<IProductData[]>(
-    `/products?title_contains=${searchString}`,
+    `/products?name_contains=${searchString}`,
   )
 
   return searchResult
