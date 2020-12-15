@@ -26,11 +26,13 @@ export default function ProductItem({ product }: ProductItemProps) {
 
       <Ui.Box p="6">
         <Ui.Box fontWeight="semibold" mt="1" as="h4" isTruncated>
-          {product.title}
+          {product.name}
         </Ui.Box>
 
         <Ui.Text>
-          {product.price ? formatMoney(product.price) : 'Preço sob consulta'}
+          {typeof product.price === 'number'
+            ? formatMoney(product.price)
+            : 'Preço sob consulta'}
         </Ui.Text>
       </Ui.Box>
     </Ui.Box>

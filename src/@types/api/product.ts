@@ -50,13 +50,13 @@ export interface IProductImage {
 
 export interface IProductData {
   id: number
-  title: string
-  description: string
-  price: number
+  name: string
+  description?: string
+  price?: number
   slug: string
-  category: IProductCategory
+  category?: IProductCategory
   published_at: string
   created_at: string
   updated_at: string
-  images: IProductImage[]
+  images?: IProductImage[]
 }

@@ -52,7 +52,7 @@ export default function Product({ product }: Productrops) {
           </Ui.BreadcrumbItem>
 
           <Ui.BreadcrumbItem isCurrentPage>
-            <Ui.BreadcrumbLink href="/">{product.title}</Ui.BreadcrumbLink>
+            <Ui.BreadcrumbLink href="/">{product.name}</Ui.BreadcrumbLink>
           </Ui.BreadcrumbItem>
         </Ui.Breadcrumb>
 
@@ -83,11 +83,11 @@ export default function Product({ product }: Productrops) {
 
           <Ui.Box>
             <Ui.Heading mb="5" size="lg">
-              {product.title}
+              {product.name}
             </Ui.Heading>
 
             <Ui.Text mb="5">
-              {product.price
+              {typeof product.price === 'number'
                 ? formatMoney(product.price)
                 : 'Preço sob consulta'}
             </Ui.Text>
